@@ -27,18 +27,31 @@ app.get('/rolldice',(req,res)=>{
     res.render('rolldice.ejs',{ diceVal })
 })
 
-app.get('/ig/:username',(req,res)=>{
-    let {username} = req.params;
+// app.get('/ig/:username',(req,res)=>{
+//     let {username} = req.params;
+//     console.log(username);
+//     // const followers = ['adam','bob','steve','abc'];
+//     // res.render('instagram.ejs',{username , followers});
+//     // import instagramData from './'
+//     const instagramData = require('./data.json');
+//     console.log(instagramData);
+//     const data = instagramData[username]
+//     if(data){
+//         res.render('instagram.ejs',{ data })
+//     }else{
+//         res.render('error.ejs');
+//     }
+// })
+
+app.get('/id/:username',(req,res)=>{
+    const {username} = req.params;
     console.log(username);
-    // const followers = ['adam','bob','steve','abc'];
-    // res.render('instagram.ejs',{username , followers});
-    // import instagramData from './'
-    const instagramData = require('./data.json');
+    const instagramData = require('./data.json')
     console.log(instagramData);
-    const data = instagramData[username]
+    const data = instagramData[username];
     if(data){
-        res.render('instagram.ejs',{ data })
+        res.render('instagram.ejs',{ data });
     }else{
-        res.render('error.ejs');
+        res.render('error.ejs')
     }
 })
